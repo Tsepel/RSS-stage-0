@@ -14,6 +14,8 @@
     --color-light-xl: #FFFFFF;
     --color-dark-s: #CDCDCD;
     --color-light-s: #FAFAFA;
+    --color-dark-l: #545454;
+    --color-dark-xl: #4C4C4C;
     --start-screen-gradient-background: url("./assets/img/start-screen-bg.png"), radial-gradient(at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%);
 }
 
@@ -40,13 +42,20 @@ h2 {
     letter-spacing: 0em;
 }
 
+h3 {
+    font: 35px/1.3 Georgia, serif;
+    color: var(--color-dark-l);
+    letter-spacing: 0.06em;
+}
+
 ul {
     text-decoration: none;
     list-style: none;
 }
 
 body {
-    background-color: var(--color-light-xl);
+    /*background-color: var(--color-light-xl);*/
+    background-color: plum;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -140,4 +149,34 @@ body {
     font: var(--button-text);
     letter-spacing: 0.06em;
     white-space: nowrap;
+}
+
+.about {
+    background-color: var(--color-light-xl);
+    height: 588px;  
+}
+
+.about-content {
+    width: 850px;
+    padding: 80px 215px 100px 215px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-text {
+    width: 430px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about-title {
+    width: 350px;
+}
+
+.about-paragraph {
+    font: var(--paragraph-l);
+    color: var(--color-dark-xl);
 }
