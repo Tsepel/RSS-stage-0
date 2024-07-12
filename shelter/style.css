@@ -1,0 +1,92 @@
+@font-face {
+    font-family: 'Georgia';
+    src: url(/assets/fonts/georgia.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --logo_title: 400 32px/1.1 Georgia, serif;
+    --logo_subtitle: 13px Arial, sans-serif;
+    --paragraph-l: 15px/1.6 Arial, sans-serif;
+    --color-primary: #F1CDB3;
+    --color-light-xl: #FFFFFF;
+    --color-dark-s: #CDCDCD;
+    --color-light-s: #FAFAFA;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background-color: #2d2b2b;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.start-screen {
+    background-color: #3f3a3a;
+    height: 908px;
+}
+
+.header {
+    width: 1280px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+}
+
+.logo {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-title {
+    font: var(--logo_title);
+    color: var(--color-primary);
+    letter-spacing: 0.06em;
+}
+
+.logo-subtitle {
+    font: var(--logo_subtitle);
+    color: var(--color-light-xl);
+    letter-spacing: 0.1em;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: right;
+    font: var(--paragraph-l);
+    color: var(--color-dark-s);
+}
+
+.nav-menu-item {
+    margin-left: 35px;
+}
+
+.menu-active {
+    color: var(--color-light-s);
+    border-bottom: 3px solid var(--color-primary);
+}
