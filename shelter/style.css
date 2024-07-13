@@ -12,10 +12,12 @@
     --button-text: 17px/1.3 Georgia, serif;
     --color-primary: #F1CDB3;
     --color-light-xl: #FFFFFF;
-    --color-dark-s: #CDCDCD;
+    --color-light-l: #F6F6F6;
     --color-light-s: #FAFAFA;
-    --color-dark-l: #545454;
+    --color-dark-3xl: #292929;
     --color-dark-xl: #4C4C4C;
+    --color-dark-l: #545454;
+    --color-dark-s: #CDCDCD;
     --start-screen-gradient-background: url("./assets/img/start-screen-bg.png"), radial-gradient(at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%);
 }
 
@@ -23,6 +25,10 @@ header, section, footer {
     width: 1200px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.block {
+    padding: 80px 40px 100px 40px;
 }
 
 h1,
@@ -44,6 +50,12 @@ h2 {
 
 h3 {
     font: 35px/1.3 Georgia, serif;
+    color: var(--color-dark-l);
+    letter-spacing: 0.06em;
+}
+
+h4 {
+    font: 20px/1.15 Georgia, serif;
     color: var(--color-dark-l);
     letter-spacing: 0.06em;
 }
@@ -153,12 +165,11 @@ body {
 
 .about {
     background-color: var(--color-light-xl);
-    height: 588px;  
+    height: 588px;
 }
 
 .about-content {
     width: 850px;
-    padding: 80px 215px 100px 215px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -179,4 +190,70 @@ body {
 .about-paragraph {
     font: var(--paragraph-l);
     color: var(--color-dark-xl);
+}
+
+.pets {
+    background-color: var(--color-light-l);
+    height: 877px;
+    display: flex;
+}
+
+.pets-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.pets-title {
+    text-align: center;
+}
+
+.slider {
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cards {
+    width: 990px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    width: 270px;
+    height: 435px;
+    background: var(--color-light-s);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.button-secondary {
+    border: 2px solid var(--color-primary);
+    border-radius: 100px;
+    width: 187px;
+    height: 52px;
+    background: transparent;
+    font: var(--button-text);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+}
+
+.button-arrow {
+    border-radius: 100px;
+    border: 2px solid var(--color-primary);
+    background: transparent;
+    font-size: 18px;
+    height: 52px;
+    width: 52px;
+    color: var(--color-dark-3xl);
+}
+
+.get-to-know-btn {
+    width: 261px;
 }
