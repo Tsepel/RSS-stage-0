@@ -206,7 +206,7 @@ body {
     flex-grow: 1;
 }
 
-.pets-title {
+.text-centered {
     text-align: center;
 }
 
@@ -256,4 +256,34 @@ body {
 
 .get-to-know-btn {
     width: 261px;
+}
+
+.help {
+    background-color: var(--color-light-xl);
+    height: 611px;
+    display: flex;
+}
+
+.help-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.help-list {
+    padding: 60px auto 0px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 55px 120px;
+}
+
+.help-list-item {
+    height: 113px;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
