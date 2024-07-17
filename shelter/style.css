@@ -17,6 +17,7 @@
     --color-dark-3xl: #292929;
     --color-dark-xl: #4C4C4C;
     --color-dark-l: #545454;
+    --color-dark-m: #B2B2B2;
     --color-dark-s: #CDCDCD;
     --start-screen-gradient-background: url("./assets/img/start-screen-bg.png"), radial-gradient(at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%);
 }
@@ -60,9 +61,19 @@ h4 {
     letter-spacing: 0.06em;
 }
 
+h5 {
+    font: 15px/1.1 Georgia, serif;
+    color: var(--color-dark-l);
+    letter-spacing: 0.06em;
+}
+
 ul {
     text-decoration: none;
     list-style: none;
+}
+
+button {
+    border: none;
 }
 
 body {
@@ -175,7 +186,7 @@ body {
     align-items: center;
 }
 
-.about-text {
+.left-align-text {
     width: 430px;
     height: 380px;
     display: flex;
@@ -286,4 +297,41 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+
+.donation {
+    background-color: var(--color-light-l);
+    height: 462px;
+    display: flex;
+}
+
+.donation-content {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+}
+
+.donation-text {
+    width: 380px;
+    height: 282px;
+}
+
+.donation-title {
+    width: 300px;
+}
+
+.button-credit-card {
+    background: var(--color-primary);
+    border-radius: 9px;
+    padding: 10px 15px;
+    width: 349px;
+    height: 43px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.payment-info-text {
+    font: italic 12px/1.5 Arial, sans-serif;
+    color: var(--color-dark-m);
 }
