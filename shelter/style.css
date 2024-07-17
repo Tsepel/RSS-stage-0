@@ -20,9 +20,10 @@
     --color-dark-m: #B2B2B2;
     --color-dark-s: #CDCDCD;
     --start-screen-gradient-background: url("./assets/img/start-screen-bg.png"), radial-gradient(at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%);
+    --footer-gradient-background: url("./assets/img/start-screen-bg.png"), radial-gradient(at 30% 50%, rgb(81, 61, 47) 0%, rgb(26, 26, 28) 100%);
 }
 
-header, section, footer {
+header, section {
     width: 1200px;
     margin-left: auto;
     margin-right: auto;
@@ -77,8 +78,7 @@ button {
 }
 
 body {
-    /*background-color: var(--color-light-xl);*/
-    background-color: plum;
+    background-color: var(--color-light-xl);
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -334,4 +334,46 @@ body {
 .payment-info-text {
     font: italic 12px/1.5 Arial, sans-serif;
     color: var(--color-dark-m);
+}
+
+.footer {
+    background: var(--footer-gradient-background), url("./assets/img/start-screen-bg.png"), radial-gradient(at 5.73% 50%, rgb(81, 61, 47) 0%, rgb(26, 26, 28) 100%);
+}
+
+.footer-content {
+    padding-top: 40px;
+    padding-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.footer-text {
+    padding-bottom: 60px;
+    height: 234px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.for-questions {
+    width: 280px;
+}
+
+.we-are-waiting {
+    width: 302px;
+}
+
+.footer-title {
+    color: var(--color-light-xl);
+}
+
+.footer-link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-h4 {
+    color: var(--color-primary);
 }
