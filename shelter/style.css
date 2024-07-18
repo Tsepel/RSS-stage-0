@@ -24,6 +24,10 @@
     --footer-gradient-background: url("./assets/img/start-screen-bg.png"), radial-gradient(at 30% 50%, rgb(81, 61, 47) 0%, rgb(26, 26, 28) 100%);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 header, section {
     width: 1200px;
     margin-left: auto;
@@ -32,6 +36,11 @@ header, section {
 
 .block {
     padding: 80px 40px 100px 40px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 h1,
@@ -134,6 +143,10 @@ body {
     margin-left: 36px;
 }
 
+.nav-menu-item:hover {
+    color: var(--color-light-s);
+}
+
 .menu-active {
     color: var(--color-light-s);
     border-bottom: 3px solid var(--color-primary);
@@ -210,13 +223,13 @@ body {
     color: var(--color-dark-xl);
 }
 
-.pets {
+.our-friends {
     background-color: var(--color-light-l);
     height: 877px;
     display: flex;
 }
 
-.pets-content {
+.our-friends-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -249,6 +262,11 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 30px;
+}
+
+.card:hover {
+    background: var(--color-light-xl);
+    box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
 }
 
 .button-secondary {
@@ -395,12 +413,20 @@ body {
     color: var(--color-light-xl);
 }
 
-.footer-link {
+.footer-link-container {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.footer-h4 {
+.footer-link {
     color: var(--color-primary);
+}
+
+.footer-link-container:hover .footer-link {
+    color: var(--color-light-s);
+}
+
+.footer-link-container:hover .footer-link-svg {
+    stroke: var(--color-light-s);
 }
