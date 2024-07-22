@@ -66,7 +66,7 @@ h3 {
     letter-spacing: 0.06em;
 }
 
-h4 {
+h4, .h4 {
     font: 20px/1.15 Georgia, serif;
     color: var(--color-dark-l);
     letter-spacing: 0.06em;
@@ -123,12 +123,17 @@ body {
     font: var(--logo_title);
     color: var(--color-primary);
     letter-spacing: 0.06em;
+    transition: 0.3s ease-in-out;
 }
 
 .logo-subtitle {
     font: var(--logo_subtitle);
     color: var(--color-light-xl);
     letter-spacing: 0.1em;
+}
+
+.logo:hover > .logo-title {
+    color: var(--color-light-s);
 }
 
 .nav-menu {
@@ -141,6 +146,7 @@ body {
 
 .nav-menu-item {
     margin-left: 36px;
+    transition: 0.3s ease-in-out;
 }
 
 .nav-menu-item:hover {
