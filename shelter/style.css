@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Georgia';
-    src: url(/assets/fonts/georgia.ttf);
+    src: url(./assets/fonts/georgia.ttf);
     font-weight: normal;
     font-style: normal;
 }
@@ -133,6 +133,10 @@ body {
 }
 
 .logo:hover > .logo-title {
+    color: var(--color-primary-light);
+}
+
+.logo:active > .logo-title {
     color: var(--color-light-s);
 }
 
@@ -147,15 +151,22 @@ body {
 .nav-menu-item {
     margin-left: 36px;
     transition: 0.3s ease-in-out;
+    border-bottom: 3px solid transparent;
 }
 
 .nav-menu-item:hover {
     color: var(--color-light-s);
 }
 
+.nav-menu-item:active {
+    border-bottom: 3px solid var(--color-primary);
+    transition: 0.3s linear;
+}
+
 .menu-active {
     color: var(--color-light-s);
     border-bottom: 3px solid var(--color-primary);
+    cursor: default;
 }
 
 .start-screen-content {
@@ -273,6 +284,7 @@ body {
 .card:hover {
     background: var(--color-light-xl);
     box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
+    cursor: pointer;
 }
 
 .button-secondary {
@@ -308,6 +320,11 @@ body {
     background: var(--color-primary-light);
     border: 2px solid var(--color-primary-light);
     cursor: pointer;
+}
+
+.button-arrow:active {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
 }
 
 .get-to-know-btn {

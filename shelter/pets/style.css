@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Georgia';
-    src: url(/assets/fonts/georgia.ttf);
+    src: url(./assets/fonts/georgia.ttf);
     font-weight: normal;
     font-style: normal;
 }
@@ -132,7 +132,11 @@ body {
 }
 
 .logo:hover > .logo-title {
-    color: var(--color-dark-m);
+    color: var(--color-dark-3xl);
+}
+
+.logo:active > .logo-title {
+    color: var(--color-primary);
 }
 
 .nav-menu {
@@ -146,15 +150,22 @@ body {
 .nav-menu-item {
     margin-left: 36px;
     transition: 0.3s ease-in-out;
+    border-bottom: 3px solid transparent;
 }
 
 .nav-menu-item:hover {
     color: var(--color-dark-3xl);
 }
 
+.nav-menu-item:active {
+    border-bottom: 3px solid var(--color-primary);
+    transition: 0.3s linear;
+}
+
 .menu-active {
     color: var(--color-dark-3xl);
     border-bottom: 3px solid var(--color-primary);
+    cursor: default;
 }
 
 .our-friends {
@@ -197,6 +208,7 @@ body {
 .card:hover {
     background: var(--color-light-xl);
     box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
+    cursor: pointer;
 }
 
 .button-secondary {
@@ -250,7 +262,12 @@ body {
     padding-bottom: 2px;
 }
 
-.button-paginator-inactive {
+.button-paginator:active {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+}
+
+.button-paginator:disabled {
     border-radius: 100px;
     border: 2px solid var(--color-dark-s);
     background: transparent;
@@ -259,6 +276,7 @@ body {
     width: 52px;
     color: var(--color-dark-s);
     padding-bottom: 2px;
+    cursor: default;
 }
 
 .get-to-know-btn {
