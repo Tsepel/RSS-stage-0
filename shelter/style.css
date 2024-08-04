@@ -28,8 +28,8 @@ html {
     scroll-behavior: smooth;
 }
 
-header, section {
-    width: 1200px;
+section {
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -101,10 +101,13 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     padding: 30px 40px 0px 40px;
 }
 
 .header {
+    width: 100%;
+    max-width: 1200px;
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -141,15 +144,15 @@ body {
 }
 
 .nav-menu {
+    width: 443px;
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     font: var(--paragraph-l);
     color: var(--color-dark-s);
     padding-bottom: 1px;
 }
 
 .nav-menu-item {
-    margin-left: 36px;
     transition: 0.3s ease-in-out;
     border-bottom: 3px solid transparent;
 }
@@ -171,6 +174,7 @@ body {
 
 .start-screen-content {
     height: 728px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -300,10 +304,14 @@ body {
     transition: 0.4s ease-in-out;
 }
 
-.button-secondary:hover {
+.card:hover .button-secondary {
     background: var(--color-primary-light);
     border: 2px solid var(--color-primary-light);
     cursor: pointer;
+}
+
+.button-secondary:hover {
+    transform: scale(1.1);
 }
 
 .button-arrow {
