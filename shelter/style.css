@@ -519,4 +519,32 @@ body {
         /* align-items: center; */
         flex-direction: column-reverse;
     }
+
+    .our-friends-content {
+        /* display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex-grow: 1; */
+    }
+
+    .slider {
+        width: 100%;
+        /* display: flex; */
+        /* justify-content: space-between; */
+        /* align-items: center; */
+        gap: 12px;
+    }
+
+    .cards {
+        width: 580px;
+        /* display: flex; */
+        /* justify-content: space-between; */
+    }
+
+    .woody-card {
+        display: none;
+    }
+
+    
 }
