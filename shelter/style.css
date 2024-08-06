@@ -473,7 +473,7 @@ body {
 @media (max-width: 768px) {
 
     .block {
-        padding: 30px 40px 100px 30px;
+        padding: 80px 30px 100px 30px;
     }
 
     .header-container {
@@ -504,5 +504,19 @@ body {
         /* max-width: 593px;
         max-height: 569px; */
         align-self: flex-end;
+    }
+
+    .about {
+        /* background-color: var(--color-light-xl); */
+        height: 1048px;
+    }
+
+    .about-content {
+        width: auto;
+        height: 868px;
+        /* display: flex; */
+        /* justify-content: space-between; */
+        /* align-items: center; */
+        flex-direction: column-reverse;
     }
 }
