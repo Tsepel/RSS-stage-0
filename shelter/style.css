@@ -520,14 +520,6 @@ body {
         flex-direction: column-reverse;
     }
 
-    .our-friends-content {
-        /* display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        flex-grow: 1; */
-    }
-
     .slider {
         width: 100%;
         /* display: flex; */
@@ -546,5 +538,55 @@ body {
         display: none;
     }
 
+    .help {
+        /* background-color: var(--color-light-xl); */
+        height: 779px;
+        /* display: flex; */
+    }
+
+    .help-list {
+        /* padding: 60px auto 0px auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; */
+        gap: 55px 60px;
+    }
+
+    .help-list-item {
+        width: 170px;
+        /* height: 113px;
+        box-sizing: content-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center; */
+    }
     
+    .donation {
+        /* background-color: var(--color-light-l); */
+        height: 783px;
+        /* display: flex; */
+    }
+    
+    .donation-content {
+        /* display: flex;
+        justify-content: center;
+        gap: 30px;
+        align-items: center; */
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        gap: auto;
+    }
+
+    .footer-content {
+        /* width: 100%; */
+        padding-top: 30px;
+        padding-bottom: 0;
+        /* display: flex; */
+        justify-content: center;
+        /* align-items: end; */
+        flex-wrap: wrap;
+        /* align-items: center; */
+        column-gap: 60px;
+    }
 }
