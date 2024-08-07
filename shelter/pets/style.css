@@ -29,8 +29,8 @@ html {
     scroll-behavior: smooth;
 }
 
-header, section {
-    width: 1200px;
+section {
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -97,14 +97,19 @@ body {
 }
 
 .header-container {
-    height: 120px;
+    height: 90px;
     background: var(--color-light-xl);
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    padding: 30px 40px 0 40px;
 }
 
 .header {
-    height: 60px;
+    width: 100%;
+    max-width: 1200px;
+    /* height: 60px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -342,4 +347,60 @@ body {
 
 .footer-link-container:hover .footer-link-svg {
     stroke: var(--color-light-s);
+}
+
+@media (max-width: 768px) {
+
+    .block {
+        padding: 80px 30px 76px 30px;
+    }
+
+    .header-container {
+        /* height: 120px; */
+        padding: 30px 30px 0px 30px;
+    }
+
+    .our-friends {
+        background-color: var(--color-light-l);
+        /* height: 1342px; */
+        height: 100%;
+        display: flex;
+    }
+
+    .our-friends-content {
+        /* display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex-grow: 1; */
+        gap: 30px;
+    }
+
+    .cards {
+        width: 580px;
+        /* display: flex; */
+        /* justify-content: space-between; */
+    }
+
+    .scarlett-card, .freddie-card {
+        display: none;
+    }
+
+    .pagination {
+        /* display: flex;
+        gap: 20px; */
+        margin-top: 10px;
+    }
+
+    .footer-content {
+        /* width: 100%; */
+        padding-top: 30px;
+        padding-bottom: 0;
+        /* display: flex; */
+        justify-content: center;
+        /* align-items: end; */
+        flex-wrap: wrap;
+        /* align-items: center; */
+        column-gap: 60px;
+    }
 }

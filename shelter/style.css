@@ -590,3 +590,7 @@ body {
         column-gap: 60px;
     }
 }
+
+@media (max-width: 320px) {
+    
+}
