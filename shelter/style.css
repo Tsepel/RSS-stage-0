@@ -681,6 +681,10 @@ body {
         /* flex-direction: column-reverse; */
     }
 
+    .about-title {
+        width: auto;
+    }    
+
     .left-align-text {
         width: 90%;
         height: 494px;
