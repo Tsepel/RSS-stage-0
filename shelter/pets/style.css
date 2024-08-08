@@ -203,6 +203,7 @@ body {
 .card {
     width: 270px;
     height: 435px;
+    border-radius: 9px;
     background: var(--color-light-s);
     display: flex;
     flex-direction: column;
