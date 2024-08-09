@@ -96,7 +96,7 @@ body {
 }
 
 .header-container {
-    height: 878px;
+    min-height: 878px;
     background: var(--start-screen-gradient-background),  url("./assets/img/start-screen-bg.png"), radial-gradient(at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%);
     display: flex;
     flex-direction: column;
@@ -177,14 +177,16 @@ body {
 }
 
 .start-screen-content {
-    height: 728px;
+    min-height: 728px;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2%;
 }
 
 .not-only {
-    width: 460px;
+    max-width: 460px;
     height: 322px;
     margin-top: 163px;
     display: flex;
@@ -219,16 +221,30 @@ body {
     cursor: pointer;
 }
 
+.start-screen-puppy {
+    /* flex-shrink: 1; */
+    /* max-width: 698px;
+    flex-flow: row nowrap;
+    width: 100%;
+    height: auto; */
+    /* max-width: 593px;
+    max-height: 569px; */
+    /* align-self: flex-end; */
+}
+
 .about {
     background-color: var(--color-light-xl);
-    height: 588px;
+    min-height: 588px;
 }
 
 .about-content {
-    width: 850px;
+    max-width: 850px;
+    /* width: 100%; */
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap-reverse;
+    gap: 120px;
 }
 
 .left-align-text {
@@ -267,14 +283,17 @@ body {
 }
 
 .slider {
-    width: 1200px;
+    max-width: 1200px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2%;
 }
 
 .cards {
-    width: 990px;
+    max-width: 990px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -347,7 +366,7 @@ body {
 
 .help {
     background-color: var(--color-light-xl);
-    height: 611px;
+    min-height: 611px;
     display: flex;
 }
 
@@ -356,6 +375,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 60px;
 }
 
 .help-list {
@@ -377,7 +397,7 @@ body {
 
 .donation {
     background-color: var(--color-light-l);
-    height: 462px;
+    min-height: 462px;
     display: flex;
 }
 
@@ -386,6 +406,7 @@ body {
     justify-content: center;
     gap: 30px;
     align-items: center;
+    flex-wrap: wrap-reverse;
 }
 
 .donation-text {
@@ -428,6 +449,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: end;
+    flex-wrap: wrap;
+    gap: 5%;
 }
 
 .footer-text {
@@ -474,6 +497,34 @@ body {
     stroke: var(--color-light-s);
 }
 
+@media (min-width: 767px) and (max-width: 1279px) {
+
+    .start-screen-content {
+        min-height: 1015px;
+        /*width: 100%;*/
+        /* display: flex; */
+        /* justify-content: space-between; */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .not-only {
+        margin-top: 80px;
+    }
+
+    .start-screen-puppy {
+        width: 70%;
+        /* height: auto; */
+        /* max-width: 593px;
+        max-height: 569px; */
+        align-self: flex-end;
+    }
+
+    .card:nth-child(n+3) {
+        display: none;
+    }
+    
+}
 
 @media (max-width: 768px) {
 
@@ -482,12 +533,12 @@ body {
     }
 
     .header-container {
-        height: 1135px;
+        min-height: 1135px;
         padding: 30px 30px 0px 30px;
     }
 
     .start-screen-content {
-        height: 1015px;
+        min-height: 1015px;
         /*width: 100%;*/
         /* display: flex; */
         /* justify-content: space-between; */
@@ -530,7 +581,7 @@ body {
         /* display: flex; */
         /* justify-content: space-between; */
         /* align-items: center; */
-        gap: 12px;
+        /* gap: 12px; */
     }
 
     .cards {
@@ -545,7 +596,7 @@ body {
 
     .help {
         /* background-color: var(--color-light-xl); */
-        height: 779px;
+        min-height: 779px;
         /* display: flex; */
     }
 
@@ -631,7 +682,7 @@ body {
     }
 
     .burger-menu {
-        display: block;
+        display: initial;
     }
 
     .start-screen-content {
@@ -709,7 +760,6 @@ body {
         justify-content: space-between;
         align-items: center;
         flex-grow: 1; */
-
     }
 
     .slider {
