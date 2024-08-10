@@ -97,7 +97,7 @@ body {
 }
 
 .header-container {
-    height: 90px;
+    min-height: 90px;
     background: var(--color-light-xl);
     display: flex;
     flex-direction: column;
@@ -145,15 +145,15 @@ body {
 }
 
 .nav-menu {
+    width: 443px;
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     font: var(--paragraph-l);
     color: var(--color-dark-l);
     padding-bottom: 1px;
 }
 
 .nav-menu-item {
-    margin-left: 36px;
     transition: 0.3s ease-in-out;
     border-bottom: 3px solid transparent;
 }
@@ -422,7 +422,57 @@ body {
     }
 }
 
-@media (max-width: 320px) {
+@media (min-width: 319px) and (max-width: 767px) {
+
+    .nav-menu {
+        display: none;
+    }
+
+    .burger-menu {
+        display: initial;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .card:nth-child(n+4) {
+        display: none;
+    }
+}
+
+@media (min-width: 319px) and (max-width: 400px) {
+    h2, h3 {
+        font: 25px/1.3 Georgia, serif;
+        letter-spacing: 0.06em;
+    }
+
+    .block {
+        padding: 42px 10px 42px 10px;
+    }
+
+    .our-friends-content {
+        
+        /* display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex-grow: 1; */
+        gap: 42px;
+    }
+
+    .cards {
+        width: 100%;
+        /* display: flex; */
+        /* justify-content: space-between; */
+        justify-content: center;
+    }
+
+    .footer-content {
+        /* width: 100%; */
+        padding-bottom: 0;
+}
+
+@media (max-width: 370px) {
 
     h1,
     h2,
@@ -462,7 +512,6 @@ body {
 
     h2, h3 {
         font: 25px/1.3 Georgia, serif;
-        width: 300px;
         letter-spacing: 0.06em;
     }
 
@@ -480,24 +529,11 @@ body {
         gap: 42px;
     }
 
-    .slider {
-        width: 100%;
-        /* display: flex; */
-        justify-content: center;
-        /* align-items: center; */
-        flex-wrap: wrap;
-        gap: 20px 80px;
-    }
-
     .cards {
         width: 100%;
         /* display: flex; */
         /* justify-content: space-between; */
         justify-content: center;
-    }
-
-    .button-arrow:nth-child(odd) {
-        order: 3;
     }
 
     .card:nth-child(n+4) {
