@@ -1,47 +1,132 @@
-console.log(`Вёрстка страницы Main соответствует макету при ширине экрана 1280px (14/14):\n
-блок <header>: +2\n
-блок Not only: +2\n
-блок About: +2\n
-блок Our Friends: +2\n
-блок Help: +2\n
-блок In addition: +2\n
-блок <footer>: +2\n
-Вёрстка страницы Main соответствует макету при ширине экрана 768px (14/14):\n
-блок <header>: +2\n
-блок Not only: +2\n
-блок About: +2\n
-блок Our Friends: +2\n
-блок Help: +2\n
-блок In addition: +2\n
-блок <footer>: +2\n
-Вёрстка страницы Main соответствует макету при ширине экрана 320px (14/14):\n
-блок <header>: +2\n
-блок Not only: +2\n
-блок About: +2\n
-блок Our Friends: +2\n
-блок Help: +2\n
-блок In addition: +2\n
-блок <footer>: +2\n
-Вёрстка страницы Pets соответствует макету при ширине экрана 1280px (6/6):\n
-блок <header>: +2\n
-блок Our Friends: +2\n
-блок <footer>: +2\n
-Вёрстка страницы Pets соответствует макету при ширине экрана 768px (6/6):\n
-блок <header>: +2\n
-блок Our Friends: +2\n
-блок <footer>: +2\n
-Вёрстка страницы Pets соответствует макету при ширине экрана 320px (6/6):\n
-блок <header>: +2\n
-блок Our Friends: +2\n
-блок <footer>: +2\n
-Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки, справа от отдельных блоков не появляются белые поля. Весь контент страницы при этом сохраняется: не обрезается и не удаляется (20/20):\n
-нет полосы прокрутки при ширине страницы Main от 1280рх до 768рх: +5\n
-нет полосы прокрутки при ширине страницы Main от 768рх до 320рх: +5\n
-нет полосы прокрутки при ширине страницы Pets от 1280рх до 768рх: +5\n
-нет полосы прокрутки при ширине страницы Pets от 768рх до 320рх: +5\n
-Верстка резиновая: при плавном изменении размера экрана от 1280px до 320px верстка подстраивается под этот размер, элементы верстки меняют свои размеры и расположение, не наезжают друг на друга, изображения могут менять размер, но сохраняют правильные пропорции (8/8):\n
-на странице Main: +4\n
-на странице Pets: +4\n
-При ширине экрана меньше 768px на обеих страницах меню в хедере скрывается, появляется иконка бургер-меню (4/4)\n
-Открытие меню при клике на иконку бургер-меню на текущем этапе не проверяется!\n
-Верстка обеих страниц валидная: для проверки валидности вёрстки используйте сервис https://validator.w3.org/ (8/8)`)
+(() => {
+    let burgerButton = document.querySelector('.burger-menu');
+    let navigation = document.querySelector('.navigation');
+    let menuBlackout = document.querySelector('.menu-blackout');
+    let menu = document.querySelector('.nav-menu');
+    let menuItems = document.querySelectorAll('.nav-menu-item');
+
+    function showMenu() {
+        navigation.classList.add('active');
+        menu.classList.add('active');
+        menuBlackout.classList.add('active');
+        burgerButton.classList.add('close-menu-active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeMenu() {
+        navigation.classList.remove('active');
+        menu.classList.remove('active');
+        menuBlackout.classList.remove('active');
+        burgerButton.classList.remove('close-menu-active');
+        document.body.style.overflow = 'auto';
+    }
+
+    function toggleMenu() {
+        if (burgerButton.classList.contains('close-menu-active')) {
+            closeMenu();
+        } else {
+            showMenu();
+        }
+    }
+
+    burgerButton.addEventListener('click', toggleMenu);
+    menuBlackout.addEventListener('click', closeMenu);
+    menuItems.forEach(item => item.addEventListener('click', closeMenu));
+
+
+    const petsList = [
+        { id: 0, petName: 'Katrine', img: './assets/img/pets-katrine.png'},
+        { id: 1, petName: 'Jennifer', img: './assets/img/pets-jennifer.png'},
+        { id: 2, petName: 'Woody', img: './assets/img/pets-woody.png'},
+        { id: 3, petName: 'Sophia', img: './assets/img/pets-sophia.png'},
+        { id: 4, petName: 'Timmy', img: './assets/img/pets-timmy.png'},
+        { id: 5, petName: 'Charly', img: './assets/img/pets-charly.png'},
+        { id: 6, petName: 'Scarlett', img: './assets/img/pets-scarlet.png'},
+        { id: 7, petName: 'Freddie', img: './assets/img/pets-freddie.png'},
+    ]
+
+    let nextBtn = document.querySelector('.next');
+    let prevBtn = document.querySelector('.prev');
+
+
+    //переменная с id трех предыдущих карточек, изначально равна ничему
+    let memory = [];
+    //переменная, которая говорит, с какой стороны эти карточки
+    let lastBtn = 'start';
+    
+    let currentCards = getNewRandomCards();
+
+    //заполняем слайдер рандомными тремя, берём их из petsList
+    function showCards() {
+        console.log('currentCards' + currentCards);
+        let i = 0; //для прохода по карточкам в html
+        for (let id of currentCards) {
+            document.querySelectorAll('.card')[i].firstElementChild.src = petsList[id]['img'];
+            document.querySelectorAll('.card')[i].firstElementChild.nextElementSibling.innerHTML = petsList[id]['petName'];
+            i++;
+        }
+    }
+
+    function shuffle(arr) {
+        let currentIndex = arr.length;
+        while (currentIndex > 0) {
+            let randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [arr[currentIndex], arr[randomIndex]] = [arr[randomIndex], arr[currentIndex]];
+        }
+    }
+
+    //берём рандомно 3 неповторяющиеся из списка
+    function getNewRandomCards() {
+        //массив id-шников
+        let nums = [0,1,2,3,4,5,6,7];
+        console.log('id set ' + nums);
+        //убираем из массива id-шников номера, записанные в currentCards
+        if (lastBtn !== 'start') {
+            for (let id of currentCards) {
+                nums.splice(nums.indexOf(id), 1);
+                console.log(id);
+                console.log('id set looks now ' + nums);
+            }
+        }
+        //в nums остались те id, из которых будем выбирать, мешаем их
+        shuffle(nums);
+        //берём первые три
+        return nums.splice(0, 3);
+    }
+
+    function nextCards() {
+        if (lastBtn === 'start' || 'next') {
+            memory = [...currentCards];
+            console.log('memory lastBtn === "start" || "next" ' + memory);
+        } else {
+            currentCards = [...memory];
+        }
+        lastBtn = 'next';
+        console.log('LAST BUTTON: ' + lastBtn)
+        currentCards = [...getNewRandomCards()];
+        showCards();
+        console.log('memory ' + memory + '\n');
+    }
+
+    function prevCards() {
+        if (lastBtn === 'start' || 'prev') {
+            memory = [...currentCards];
+            console.log('memory lastBtn === "start" || "prev" ' + memory);
+        } else {
+            currentCards = [...memory];
+        }
+        lastBtn = 'prev';
+        console.log('LAST BUTTON: ' + lastBtn)
+        currentCards = [...getNewRandomCards()];
+        showCards();
+        console.log('memory ' + memory + '\n');
+    }
+
+    showCards(); //то, что изначально
+    nextBtn.addEventListener('click', nextCards);
+    prevBtn.addEventListener('click', prevCards);
+
+})()
+
+console.log(`\n`)

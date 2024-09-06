@@ -1,3 +1,40 @@
+(() => {
+    let burgerButton = document.querySelector('.burger-menu');
+    let navigation = document.querySelector('.navigation');
+    let menuBlackout = document.querySelector('.menu-blackout');
+    let menu = document.querySelector('.nav-menu');
+    let menuItems = document.querySelectorAll('.nav-menu-item');
+
+    function showMenu() {
+        navigation.classList.add('active');
+        menu.classList.add('active');
+        menuBlackout.classList.add('active');
+        burgerButton.classList.add('close-menu-active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeMenu() {
+        navigation.classList.remove('active');
+        menu.classList.remove('active');
+        menuBlackout.classList.remove('active');
+        burgerButton.classList.remove('close-menu-active');
+        document.body.style.overflow = 'auto';
+    }
+
+    function toggleMenu() {
+        if (burgerButton.classList.contains('close-menu-active')) {
+            closeMenu();
+        } else {
+            showMenu();
+        }
+    }
+
+    burgerButton.addEventListener('click', toggleMenu);
+    menuBlackout.addEventListener('click', closeMenu);
+    menuItems.forEach(item => item.addEventListener('click', closeMenu));
+
+})()
+
 console.log(`Вёрстка страницы Main соответствует макету при ширине экрана 1280px (14/14):\n
 блок <header>: +2\n
 блок Not only: +2\n
