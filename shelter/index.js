@@ -55,16 +55,80 @@
     let lastBtn = 'start';
     
     let currentCards = getNewRandomCards();
+    let nextRandomCards = [];
 
-    //заполняем слайдер рандомными тремя, берём их из petsList
-    function showCards() {
-        console.log('currentCards' + currentCards);
-        let i = 0; //для прохода по карточкам в html
-        for (let id of currentCards) {
-            document.querySelectorAll('.card')[i].firstElementChild.src = petsList[id]['img'];
-            document.querySelectorAll('.card')[i].firstElementChild.nextElementSibling.innerHTML = petsList[id]['petName'];
-            i++;
+    function createSliderItem(cardID) {
+            console.log("Картинка по айдишнику: " + cardID);
+            let item = document.createElement('div');
+            document.querySelector('.cards').appendChild(item);
+            console.log("Картинка животного: " + petsList[cardID]['img']);
+            item.className = 'card';
+            if (lastBtn === 'next') {
+                item.classList.add('to-right');
+            } else if (lastBtn === 'prev') {
+                item.classList.add('to-left');
+            }
+            item.innerHTML = `
+                    <img src="" alt="">
+                    <h4></h4>
+                    <button class="button-secondary">Learn more</button>
+            `;
+            item.firstElementChild.src = petsList[cardID]['img'];
+            item.firstElementChild.alt = petsList[cardID]['petName'] + ' photo';
+            item.firstElementChild.nextElementSibling.innerHTML = petsList[cardID]['petName'];
         }
+
+    //функция показа (анимации) карточек
+    function showCards() {
+        //реализовать три варианта
+        switch (lastBtn) {
+            case 'start': {
+                console.log('showCards, currentCards: ' + currentCards);
+                let i = 0; //для прохода по карточкам в html
+                for (let id of currentCards) {
+                    document.querySelectorAll('.card')[i].firstElementChild.src = petsList[id]['img'];
+                    document.querySelectorAll('.card')[i].firstElementChild.nextElementSibling.innerHTML = petsList[id]['petName'];
+                    i++;
+                }
+                break;
+            }
+            case 'next': {
+                console.log('Выполняется функция showCards после кнопки next...');
+                console.log(nextRandomCards);
+                
+                //предыдущий блок уходит влево, старые удаляются
+                for (i = 0; i < 3; i++) {
+                    document.querySelectorAll('.card')[i].classList.add('to-left');
+                    setTimeout(() => { document.querySelector('.to-left').remove() }, 300);
+                    createSliderItem(nextRandomCards[i]);
+                    // if (document.querySelector('.to-right')) {
+                        setTimeout(() => {
+                            document.querySelector('.to-right').classList.remove('to-right');
+                        }, 300);
+                    // }
+                }
+                break;
+            }
+            case 'prev': {
+                console.log('Выполняется функция showCards после кнопки prev...');
+                console.log(nextRandomCards);
+                
+                //предыдущий блок уходит вправо, старые удаляются
+                for (i = 0; i < 3; i++) {
+                    document.querySelectorAll('.card')[i].classList.add('to-right');
+                    setTimeout(() => { document.querySelector('.to-right').remove() }, 300);
+                    createSliderItem(nextRandomCards[i]);
+                    console.log()
+                    // if (document.querySelector('.to-left')) {
+                        setTimeout(() => {
+                            document.querySelector('.to-left').classList.remove('to-left');
+                        }, 300);
+                    // }
+                }
+                break;
+            }
+        }
+        
     }
 
     function shuffle(arr) {
@@ -80,48 +144,58 @@
     function getNewRandomCards() {
         //массив id-шников
         let nums = [0,1,2,3,4,5,6,7];
-        console.log('id set ' + nums);
         //убираем из массива id-шников номера, записанные в currentCards
         if (lastBtn !== 'start') {
             for (let id of currentCards) {
                 nums.splice(nums.indexOf(id), 1);
-                console.log(id);
-                console.log('id set looks now ' + nums);
             }
         }
         //в nums остались те id, из которых будем выбирать, мешаем их
         shuffle(nums);
+        console.log('getNewRandom, random set: ' + nums);
         //берём первые три
         return nums.splice(0, 3);
     }
 
     function nextCards() {
-        if (lastBtn === 'start' || 'next') {
+        if (lastBtn === 'start' || lastBtn === 'next') {
             memory = [...currentCards];
-            console.log('memory lastBtn === "start" || "next" ' + memory);
             lastBtn = 'next';
-            currentCards = [...getNewRandomCards()];
+            nextRandomCards = [...getNewRandomCards()];
+            console.log('ща запустим showCards');
+            showCards();
+            currentCards = [...nextRandomCards]; //запихнем это в функцию показа!!!
         } else {
-            currentCards = [...memory];
+            let temp = [...currentCards];
+            nextRandomCards = [...memory];
             lastBtn = 'next';
+            showCards();
+            currentCards = [...nextRandomCards]; //запихнем это в функцию показа!!!
+            memory = [...temp];
+            console.log('currentCards look like this: ' + currentCards);
         }
-        console.log('LAST BUTTON: ' + lastBtn)
-        showCards();
+        console.log('nextCards, LAST BUTTON: ' + lastBtn)
         console.log('memory ' + memory + '\n');
     }
 
     function prevCards() {
-        if (lastBtn === 'start' || 'prev') {
+        if (lastBtn === 'start' || lastBtn === 'prev') {
             memory = [...currentCards];
-            console.log('memory lastBtn === "start" || "prev" ' + memory);
             lastBtn = 'prev';
-            currentCards = [...getNewRandomCards()];
+            nextRandomCards = [...getNewRandomCards()];
+            console.log('ща запустим showCards');
+            showCards();
+            currentCards = [...nextRandomCards]; //запихнем это в функцию показа!!!
         } else {
-            currentCards = [...memory];
+            let temp = [...currentCards];
+            nextRandomCards = [...memory];
             lastBtn = 'prev';
+            showCards();
+            currentCards = [...nextRandomCards]; //запихнем это в функцию показа!!!
+            memory = [...temp];
+            console.log('currentCards look like this: ' + currentCards);
         }
-        console.log('LAST BUTTON: ' + lastBtn)
-        showCards();
+        console.log('prevCards, LAST BUTTON: ' + lastBtn)
         console.log('memory ' + memory + '\n');
     }
 
