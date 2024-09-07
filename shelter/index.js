@@ -99,12 +99,13 @@
         if (lastBtn === 'start' || 'next') {
             memory = [...currentCards];
             console.log('memory lastBtn === "start" || "next" ' + memory);
+            lastBtn = 'next';
+            currentCards = [...getNewRandomCards()];
         } else {
             currentCards = [...memory];
+            lastBtn = 'next';
         }
-        lastBtn = 'next';
         console.log('LAST BUTTON: ' + lastBtn)
-        currentCards = [...getNewRandomCards()];
         showCards();
         console.log('memory ' + memory + '\n');
     }
@@ -113,12 +114,13 @@
         if (lastBtn === 'start' || 'prev') {
             memory = [...currentCards];
             console.log('memory lastBtn === "start" || "prev" ' + memory);
+            lastBtn = 'prev';
+            currentCards = [...getNewRandomCards()];
         } else {
             currentCards = [...memory];
+            lastBtn = 'prev';
         }
-        lastBtn = 'prev';
         console.log('LAST BUTTON: ' + lastBtn)
-        currentCards = [...getNewRandomCards()];
         showCards();
         console.log('memory ' + memory + '\n');
     }
