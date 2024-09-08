@@ -118,6 +118,7 @@
             document.querySelectorAll('.card')[i].firstElementChild.src = paginationArr[i + offset * cardsPerPage]['img'];
             document.querySelectorAll('.card')[i].firstElementChild.alt = paginationArr[i + offset * cardsPerPage]['petName'] + ' photo';
             document.querySelectorAll('.card')[i].firstElementChild.nextElementSibling.innerHTML = paginationArr[i + offset * cardsPerPage]['petName'];
+            document.querySelectorAll('.card')[i].addEventListener('click', showModalWindow);
             console.log('i + offset * cardsPerPage = ' + (i + offset * cardsPerPage));
         }
     }
