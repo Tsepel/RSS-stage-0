@@ -58,10 +58,8 @@
     let nextRandomCards = [];
 
     function createSliderItem(cardID) {
-        console.log("Картинка по айдишнику: " + cardID);
         let item = document.createElement('div');
         document.querySelector('.cards').appendChild(item);
-        console.log("Картинка животного: " + petsList[cardID]['img']);
         item.className = 'card';
         if (lastBtn === 'next') {
             item.classList.add('to-right');
@@ -84,7 +82,6 @@
         //реализовать три варианта
         switch (lastBtn) {
             case 'start': {
-                console.log('showCards, currentCards: ' + currentCards);
                 let i = 0; //для прохода по карточкам в html
                 for (let id of currentCards) {
                     document.querySelectorAll('.card')[i].firstElementChild.src = petsList[id]['img'];
@@ -94,8 +91,6 @@
                 break;
             }
             case 'next': {
-                console.log('Выполняется функция showCards после кнопки next...');
-                console.log(nextRandomCards);
                 
                 //предыдущий блок уходит влево, старые удаляются
                 for (i = 0; i < 3; i++) {
@@ -111,15 +106,12 @@
                 break;
             }
             case 'prev': {
-                console.log('Выполняется функция showCards после кнопки prev...');
-                console.log(nextRandomCards);
                 
                 //предыдущий блок уходит вправо, старые удаляются
                 for (i = 0; i < 3; i++) {
                     document.querySelectorAll('.card')[i].classList.add('to-right');
                     setTimeout(() => { document.querySelector('.to-right').remove() }, 300);
                     createSliderItem(nextRandomCards[i]);
-                    console.log()
                     // if (document.querySelector('.to-left')) {
                         setTimeout(() => {
                             document.querySelector('.to-left').classList.remove('to-left');
@@ -152,7 +144,6 @@
         }
         //в nums остались те id, из которых будем выбирать, мешаем их
         shuffle(nums);
-        console.log('getNewRandom, random set: ' + nums);
         //берём первые три
         return nums.splice(0, 3);
     }
@@ -162,7 +153,6 @@
             memory = [...currentCards];
             lastBtn = 'next';
             nextRandomCards = [...getNewRandomCards()];
-            console.log('ща запустим showCards');
             showCards();
             currentCards = [...nextRandomCards]; //запихнем это в функцию показа!!!
         } else {
@@ -172,10 +162,7 @@
             showCards();
             currentCards = [...nextRandomCards]; //запихнем это в функцию показа!!!
             memory = [...temp];
-            console.log('currentCards look like this: ' + currentCards);
         }
-        console.log('nextCards, LAST BUTTON: ' + lastBtn)
-        console.log('memory ' + memory + '\n');
     }
 
     function prevCards() {
@@ -183,7 +170,6 @@
             memory = [...currentCards];
             lastBtn = 'prev';
             nextRandomCards = [...getNewRandomCards()];
-            console.log('ща запустим showCards');
             showCards();
             currentCards = [...nextRandomCards]; //запихнем это в функцию показа!!!
         } else {
@@ -193,10 +179,7 @@
             showCards();
             currentCards = [...nextRandomCards]; //запихнем это в функцию показа!!!
             memory = [...temp];
-            console.log('currentCards look like this: ' + currentCards);
         }
-        console.log('prevCards, LAST BUTTON: ' + lastBtn)
-        console.log('memory ' + memory + '\n');
     }
     
     showCards(); //то, что изначально
@@ -310,7 +293,6 @@
         popupBlackout.classList.add('active');
         document.body.style.overflow = 'hidden';
         const petName = this.firstElementChild.nextElementSibling.textContent;
-        console.log(petName);
         petObj = petsData.find(item => item['name'] === petName);
 
         const modalContent = document.querySelector('.modal-window-content');
@@ -339,4 +321,8 @@
 
 })()
 
-console.log(`\n`)
+console.log(`1) Реализация burger menu на обеих страницах: +26\n
+    2) Реализация слайдера-карусели на странице Main: +36\n
+    3) Реализация пагинации на странице Pets: +36\n
+    4) Реализация попап на обеих страницах: +12\n
+    Итого 110/110`)

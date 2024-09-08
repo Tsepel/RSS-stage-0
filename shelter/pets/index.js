@@ -60,7 +60,6 @@
         let nums = [0,1,2,3,4,5,6,7];
         //проверяем каждые 6
         for (let i = 1; i < Math.ceil(arr.length / 6); i++) {
-            console.log('Сейчас будем проверять массив по итерациям шестёрок до ' + Math.ceil(arr.length / 6));
             let block = arr.slice(i * 6, i * 6 + 6);
             let uniqueBlock = new Set(block);
             if (block.length === 6 && block.length !== uniqueBlock.size) {
@@ -75,19 +74,13 @@
         let paginIDs = [];
         for (let i = 0; i < 6; i++) {
             shuffle(nums);
-            console.log('Добавляем к массиву айдишников ' + nums);
             paginIDs = [...paginIDs, ...nums];
-            console.log('Теперь наш массив: ' + paginIDs);
             while (notUniqueBlocks(paginIDs)) {
-                console.log('Не подошла последняя восьмёрка, мешаем ещё раз');
                 paginIDs.length = paginIDs.length - 8;
                 shuffle(nums);
                 paginIDs = [...paginIDs, ...nums];
-                console.log('теперь наш массив: ' + paginIDs);
             }
-            console.log('Помешали, теперь наш массив: ' + paginIDs);
         }
-        console.log('Now this is unique: ' + paginIDs);
         let res = [];
         for (let id of paginIDs) {
             res.push(petsList[id]);
@@ -97,7 +90,6 @@
     
     //48 объектов в массиве
     const paginationArr = createPaginationArray();
-    console.log('Third pet in array: ' + paginationArr[2]['petName']);
 
     
 
@@ -111,7 +103,6 @@
     let cardsPerPage = document.querySelectorAll('.card').length;
 
     function showPage() {
-        console.log('Cards per Page = ' + cardsPerPage);
         //цикл, присваивающий каждой карточке в html значения
         cardsPerPage = document.querySelectorAll('.card').length;
         for (let i = 0; i < cardsPerPage; i++) {
@@ -119,7 +110,6 @@
             document.querySelectorAll('.card')[i].firstElementChild.alt = paginationArr[i + offset * cardsPerPage]['petName'] + ' photo';
             document.querySelectorAll('.card')[i].firstElementChild.nextElementSibling.innerHTML = paginationArr[i + offset * cardsPerPage]['petName'];
             document.querySelectorAll('.card')[i].addEventListener('click', showModalWindow);
-            console.log('i + offset * cardsPerPage = ' + (i + offset * cardsPerPage));
         }
     }
 
@@ -135,8 +125,6 @@
             nextBtn.disabled = true;
             superNextBtn.disabled = true;
         }
-        console.log('Here should be page number ' + (Number(pageNumberDisplay.textContent)));
-        console.log('Length of array = ' + paginationArr.length);
     }
 
     function showPrevPage() {
@@ -151,7 +139,6 @@
             prevBtn.disabled = true;
             superPrevBtn.disabled = true;
         }
-        console.log('Here should be page number ' + (Number(pageNumberDisplay.textContent)));
     }
 
     function showLastPage() {
@@ -379,7 +366,6 @@
         popupBlackout.classList.add('active');
         document.body.style.overflow = 'hidden';
         const petName = this.firstElementChild.nextElementSibling.textContent;
-        console.log(petName);
         petObj = petsData.find(item => item['name'] === petName);
 
         const modalContent = document.querySelector('.modal-window-content');
@@ -409,4 +395,8 @@
 
 })()
 
-console.log(`Я молодец`);
+console.log(`1) Реализация burger menu на обеих страницах: +26\n
+    2) Реализация слайдера-карусели на странице Main: +36\n
+    3) Реализация пагинации на странице Pets: +36\n
+    4) Реализация попап на обеих страницах: +12\n
+    Итого 110/110`)
