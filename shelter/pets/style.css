@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Georgia';
-    src: url(./assets/fonts/georgia.ttf);
+    src: url(../assets/fonts/georgia.ttf);
     font-weight: normal;
     font-style: normal;
 }
@@ -22,8 +22,8 @@
     --color-dark-l: #545454;
     --color-dark-m: #B2B2B2;
     --color-dark-s: #CDCDCD;
-    --start-screen-gradient-background: url("./assets/img/start-screen-bg.png"), radial-gradient(at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%);
-    --footer-gradient-background: url("./assets/img/start-screen-bg.png"), radial-gradient(at 30% 50%, rgb(81, 61, 47) 0%, rgb(26, 26, 28) 100%);
+    --start-screen-gradient-background: url("../assets/img/start-screen-bg.png"), radial-gradient(at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%);
+    --footer-gradient-background: url("../assets/img/start-screen-bg.png"), radial-gradient(at 30% 50%, rgb(81, 61, 47) 0%, rgb(26, 26, 28) 100%);
 }
 
 html {
@@ -275,7 +275,7 @@ body {
     cursor: pointer;
 }
 
-.button-paginator-active {
+.button-paginator.page-number {
     border-radius: 100px;
     background: var(--color-primary);
     font: var(--btn-pagination-text);
@@ -307,7 +307,7 @@ body {
 }
 
 .footer {
-    background: var(--footer-gradient-background), url("./assets/img/start-screen-bg.png"), radial-gradient(at 5.73% 50%, rgb(81, 61, 47) 0%, rgb(26, 26, 28) 100%);
+    background: var(--footer-gradient-background), url("../assets/img/start-screen-bg.png"), radial-gradient(at 5.73% 50%, rgb(81, 61, 47) 0%, rgb(26, 26, 28) 100%);
 }
 
 .footer-content {

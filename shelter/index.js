@@ -128,7 +128,6 @@
                 break;
             }
         }
-        
     }
 
     function shuffle(arr) {
