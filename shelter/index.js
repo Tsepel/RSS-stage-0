@@ -305,8 +305,6 @@
         document.querySelectorAll('.card')[i].addEventListener('click', showModalWindow);
     }
 
-    // document.querySelector('.card').addEventListener('click', showModalWindow);
-
     function showModalWindow() {
         document.querySelector('.modal-window').classList.remove('invisible');
         popupBlackout.classList.add('active');
@@ -314,11 +312,12 @@
         const petName = this.firstElementChild.nextElementSibling.textContent;
         console.log(petName);
         petObj = petsData.find(item => item['name'] === petName);
+
         const modalContent = document.querySelector('.modal-window-content');
+
         modalContent.previousElementSibling.src = petObj['img'];
         modalContent.previousElementSibling.alt = petObj['img'] + ' photo';
         modalContent.firstElementChild.textContent = petName;
-        // modalContent.firstElementChild.src = petsList[cardID]['img'];
         modalContent.children[1].textContent = petObj['type'] + ' - ' + petObj['breed'];
         modalContent.children[2].textContent = petObj['description'];
         modalContent.children[3].firstElementChild.innerHTML = '<b>Age:</b> ' + petObj['age'];
@@ -328,32 +327,6 @@
 
         let cross = document.querySelector('.cross');
         cross.addEventListener('click', closeModalWindow);
-
-        // modalContent.children[1] = petsList[cardID]['petName'] + ' photo';
-        // modalContent.children[1] = petsList[cardID]['petName'] + ' photo';
-        // modalContent.children[1] = petsList[cardID]['petName'] + ' photo';
-        // modalContent.children[1] = petsList[cardID]['petName'] + ' photo';
-        // modalContent.children[1] = petsList[cardID]['petName'] + ' photo';
-        // modalContent.firstElementChild.nextElementSibling.innerHTML = petsList[cardID]['petName'];
-
-        // console.log("Картинка по айдишнику: " + cardID);
-        // let item = document.createElement('div');
-        // document.querySelector('.cards').appendChild(item);
-        // console.log("Картинка животного: " + petsList[cardID]['img']);
-        // item.className = 'card';
-        // if (lastBtn === 'next') {
-        //     item.classList.add('to-right');
-        // } else if (lastBtn === 'prev') {
-        //     item.classList.add('to-left');
-        // }
-        // item.innerHTML = `
-        //         <img src="" alt="">
-        //         <h4></h4>
-        //         <button class="button-secondary">Learn more</button>
-        // `;
-        // item.firstElementChild.src = petsList[cardID]['img'];
-        // item.firstElementChild.alt = petsList[cardID]['petName'] + ' photo';
-        // item.firstElementChild.nextElementSibling.innerHTML = petsList[cardID]['petName'];
     }
 
     function closeModalWindow() {

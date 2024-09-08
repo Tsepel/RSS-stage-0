@@ -187,6 +187,21 @@ body {
     background-color: var(--color-dark-3xl);
 }
 
+.blackout {
+    background-color: var(--color-dark-3xl);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.blackout.active {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.6;
+}
+
 .our-friends {
     background-color: var(--color-light-l);
     min-height: 1342px;
@@ -304,6 +319,70 @@ body {
 
 .get-to-know-btn {
     width: 261px;
+}
+
+.modal-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 9px;
+    width: 900px;
+    height: 500px;
+    box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
+    background: var(--color-light-s);
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-window.invisible {
+    display: none;
+}
+
+.modal-window-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 351px;
+    height: 390px;
+    margin-left: 30px;
+    margin-bottom: 18px;
+}
+
+.modal-window-content > h4 {
+    margin-top: -10px;
+}
+
+.modal-window-content > h5 {
+    line-height: 1.15;
+    margin-top: 20px;
+}
+
+.modal-window-image {
+    height: 100%;
+    border-radius: 9px;
+}
+
+.pet-info-list {
+    padding-left: 13px;
+    font: 15px/1.1 Georgia, serif;
+    letter-spacing: 0.06em;
+    text-decoration: auto;
+    list-style-type: disc;
+    /* display: flex;
+    flex-direction: column; */
+    line-height: 2em;
+}
+
+li::marker {
+    color: var(--color-primary);
+    font-size: 12px;
+}
+
+.cross {
+    position: fixed;
+    right: -42px;
+    top: -52px;
 }
 
 .footer {
@@ -456,20 +535,6 @@ body {
         transform: rotate(90deg);
     }
 
-    .menu-blackout {
-        background-color: var(--color-dark-3xl);
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
-
-    .menu-blackout.active {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        opacity: 0.6;
-    }
 }
 
 @media (max-width: 640px) {
