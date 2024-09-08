@@ -317,13 +317,13 @@
 
         modalContent.previousElementSibling.src = petObj['img'];
         modalContent.previousElementSibling.alt = petObj['img'] + ' photo';
-        modalContent.firstElementChild.textContent = petName;
-        modalContent.children[1].textContent = petObj['type'] + ' - ' + petObj['breed'];
-        modalContent.children[2].textContent = petObj['description'];
-        modalContent.children[3].firstElementChild.innerHTML = '<b>Age:</b> ' + petObj['age'];
-        modalContent.children[3].children[1].innerHTML = '<b>Inoculations:</b> ' + petObj['inoculations'];
-        modalContent.children[3].children[2].innerHTML = '<b>Diseases:</b> ' + petObj['diseases'];
-        modalContent.children[3].lastElementChild.innerHTML = '<b>Parasites:</b> ' + petObj['parasites'];
+        modalContent.firstElementChild.firstElementChild.textContent = petName;
+        modalContent.firstElementChild.lastElementChild.textContent = petObj['type'] + ' - ' + petObj['breed'];
+        modalContent.children[1].textContent = petObj['description'];
+        modalContent.children[2].firstElementChild.innerHTML = '<b>Age:</b> ' + petObj['age'];
+        modalContent.children[2].children[1].innerHTML = '<b>Inoculations:</b> ' + petObj['inoculations'];
+        modalContent.children[2].children[2].innerHTML = '<b>Diseases:</b> ' + petObj['diseases'];
+        modalContent.children[2].lastElementChild.innerHTML = '<b>Parasites:</b> ' + petObj['parasites'];
 
         let cross = document.querySelector('.cross');
         cross.addEventListener('click', closeModalWindow);
