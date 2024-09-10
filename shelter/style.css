@@ -305,16 +305,40 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 2%;
+    overflow: hidden;
+}
+
+.cards-wrapper {
+    max-width: 990px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+    /* align-items: center; */
+    /* новое, для слайдера */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s ease;
 }
 
 .cards {
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+    /* align-items: center; */
+    /* новое, для слайдера */
+    position: relative;
+    transition: transform 0.5s ease;
+}
+
+.cards-block {
     max-width: 990px;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    gap: 90px;
     /* новое, для слайдера */
     /* position: relative; */
-    overflow: hidden;
     transition: transform 0.5s ease;
 }
 
@@ -332,7 +356,29 @@ body {
     /* z-index: 0; */
 }
 
-.card.to-left {
+@keyframes move-left {
+    from {left: 0%;}
+    to {left: -109%;}
+}
+
+@keyframes move-right {
+    from {left: 0%;}
+    to {left: 109%;}
+}
+
+.to-left {
+    animation-name: move-left;
+    animation-duration: 1s;
+    /* opacity: 0; */
+}
+
+.to-right {
+    animation-name: move-right;
+    animation-duration: 1s;
+    /* opacity: 0; */
+}
+
+/* .card.to-left {
     transform: translateX(-400%);
     opacity: 0;
 }
@@ -340,7 +386,7 @@ body {
 .card.to-right {
     transform: translateX(400%);
     opacity: 0;
-}
+} */
 
 .card:hover {
     background: var(--color-light-xl);
@@ -407,6 +453,11 @@ body {
     align-items: center;
     z-index: 1000;
 }
+
+.popup-blackout {
+    z-index: 500;
+}
+
 .modal-window.invisible {
     display: none;
 }
@@ -612,8 +663,22 @@ li::marker {
         align-self: flex-end;
     }
 
+    .cards-wrapper {
+        max-width: 800px;
+    }
+
     .card:nth-child(n+3) {
         display: none;
+    }
+
+    @keyframes move-left {
+        from {left: 0%;}
+        to {left: -90%;}
+    }
+    
+    @keyframes move-right {
+        from {left: 0%;}
+        to {left: 90%;}
     }
     
 }
@@ -638,6 +703,28 @@ li::marker {
 
     .pet-info-list {
         line-height: 1.5em;
+    }
+
+    .cards-wrapper {
+        max-width: 580px;
+    }
+
+    .cards-block {
+        gap: 40px;
+    }
+
+    .card:nth-child(n+3) {
+        display: none;
+    }
+
+    @keyframes move-left {
+        from {left: 0%;}
+        to {left: -115.5%;}
+    }
+    
+    @keyframes move-right {
+        from {left: 0%;}
+        to {left: 115.5%;}
     }
 }
 
@@ -701,14 +788,22 @@ li::marker {
         /* gap: 12px; */
     }
 
-    .cards {
-        width: 580px;
-        /* display: flex; */
-        /* justify-content: space-between; */
-    }
-
-    .card:nth-child(n+3) {
+    /* .card:nth-child(n+3) {
         display: none;
+    } */
+
+    .cards-wrapper {
+        max-width: 320px;
+    }
+    
+    @keyframes move-left {
+        from {left: 0%;}
+        to {left: -112%;}
+    }
+    
+    @keyframes move-right {
+        from {left: 0%;}
+        to {left: 112%;}
     }
 
     .help {

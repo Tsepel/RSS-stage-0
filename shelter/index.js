@@ -62,9 +62,9 @@
         document.querySelector('.cards').appendChild(item);
         item.className = 'card';
         if (lastBtn === 'next') {
-            item.classList.add('to-right');
+            item.parentElement.classList.add('to-right');
         } else if (lastBtn === 'prev') {
-            item.classList.add('to-left');
+            item.parentElement.classList.add('to-left');
         }
         item.innerHTML = `
                 <img src="" alt="">
@@ -77,6 +77,8 @@
         item.addEventListener('click', showModalWindow);
     }
 
+    const CARDS = document.querySelector('.cards');
+
     //функция показа (анимации) карточек
     function showCards() {
         //реализовать три варианта
@@ -84,40 +86,65 @@
             case 'start': {
                 let i = 0; //для прохода по карточкам в html
                 for (let id of currentCards) {
-                    document.querySelectorAll('.card')[i].firstElementChild.src = petsList[id]['img'];
-                    document.querySelectorAll('.card')[i].firstElementChild.nextElementSibling.innerHTML = petsList[id]['petName'];
+                    document.querySelector('#cards-active').children[i].firstElementChild.src = petsList[id]['img'];
+                    document.querySelector('#cards-active').children[i].firstElementChild.alt = petsList[id]['petName'] + ' photo';
+                    document.querySelector('#cards-active').children[i].firstElementChild.nextElementSibling.innerHTML = petsList[id]['petName'];
                     i++;
                 }
                 break;
             }
             case 'next': {
-                
-                //предыдущий блок уходит влево, старые удаляются
-                for (i = 0; i < 3; i++) {
-                    document.querySelectorAll('.card')[i].classList.add('to-left');
-                    setTimeout(() => { document.querySelector('.to-left').remove() }, 300);
-                    createSliderItem(nextRandomCards[i]);
-                    // if (document.querySelector('.to-right')) {
-                        setTimeout(() => {
-                            document.querySelector('.to-right').classList.remove('to-right');
-                        }, 300);
-                    // }
-                }
+                // //присваиваем картам справа новые значения:
+                // let i = 0;
+                // for (let id of nextRandomCards) {
+                //     document.querySelector('#cards-right').children[i].firstElementChild.src = petsList[id]['img'];
+                //     document.querySelector('#cards-right').children[i].firstElementChild.alt = petsList[id]['img'] + ' photo';
+                //     document.querySelector('#cards-right').children[i].firstElementChild.nextElementSibling.innerHTML = petsList[id]['petName'];
+                //     i++;
+                // }
+                // //запускаем анимацию слайдера:
+                // console.log('поехали влево');
+                // CARDS.classList.add('to-left');
+                // CARDS.addEventListener('animationend', () => {
+                //     memory = [...currentCards];
+                //     currentCards = [...nextRandomCards];
+                //     CARDS.classList.remove('to-left');
+                //     // анимация закончилась и мы перезаписываем карточки посередине:
+                //     i = 0;
+                //     for (let id of currentCards) {
+                //         document.querySelector('#cards-active').children[i].firstElementChild.src = petsList[id]['img'];
+                //         document.querySelector('#cards-active').children[i].firstElementChild.alt = petsList[id]['img'] + ' photo';
+                //         document.querySelector('#cards-active').children[i].firstElementChild.nextElementSibling.innerHTML = petsList[id]['petName'];
+                //         i++;
+                //     }
+                // })
                 break;
             }
             case 'prev': {
-                
-                //предыдущий блок уходит вправо, старые удаляются
-                for (i = 0; i < 3; i++) {
-                    document.querySelectorAll('.card')[i].classList.add('to-right');
-                    setTimeout(() => { document.querySelector('.to-right').remove() }, 300);
-                    createSliderItem(nextRandomCards[i]);
-                    // if (document.querySelector('.to-left')) {
-                        setTimeout(() => {
-                            document.querySelector('.to-left').classList.remove('to-left');
-                        }, 300);
-                    // }
-                }
+                // //присваиваем картам слева новые значения:
+                // let i = 0;
+                // for (let id of nextRandomCards) {
+                //     document.querySelector('#cards-left').children[i].firstElementChild.src = petsList[id]['img'];
+                //     document.querySelector('#cards-left').children[i].firstElementChild.alt = petsList[id]['img'] + ' photo';
+                //     document.querySelector('#cards-left').children[i].firstElementChild.nextElementSibling.innerHTML = petsList[id]['petName'];
+                //     i++;
+                // }
+                // //запускаем анимацию слайдера:
+                // console.log('поехали вправо');
+                // CARDS.classList.add('to-right');
+                // CARDS.addEventListener('animationend', () => {
+                //     memory = [...currentCards];
+                //     currentCards = [...nextRandomCards];
+                //     CARDS.classList.remove('to-right');
+                //     // анимация закончилась и мы перезаписываем карточки посередине:
+                //     i = 0;
+                //     for (let id of currentCards) {
+                //         document.querySelector('#cards-active').children[i].firstElementChild.src = petsList[id]['img'];
+                //         document.querySelector('#cards-active').children[i].firstElementChild.alt = petsList[id]['img'] + ' photo';
+                //         document.querySelector('#cards-active').children[i].firstElementChild.nextElementSibling.innerHTML = petsList[id]['petName'];
+                //         i++;
+                //     }
+                // })
                 break;
             }
         }
@@ -150,35 +177,137 @@
 
     function nextCards() {
         if (lastBtn === 'start' || lastBtn === 'next') {
+            nextBtn.removeEventListener('click', nextCards);
+            prevBtn.removeEventListener('click', prevCards);
+            lastBtn = 'next';
+            nextRandomCards = getNewRandomCards();
+            // showCards();
+            //присваиваем картам справа новые значения:
+            let i = 0;
+            for (let id of nextRandomCards) {
+                document.querySelector('#cards-right').children[i].firstElementChild.src = petsList[id]['img'];
+                document.querySelector('#cards-right').children[i].firstElementChild.alt = petsList[id]['img'] + ' photo';
+                document.querySelector('#cards-right').children[i].firstElementChild.nextElementSibling.innerHTML = petsList[id]['petName'];
+                i++;
+            }
+            //запускаем анимацию слайдера:
+            console.log('поехали влево');
+            CARDS.classList.add('to-left');
+            CARDS.addEventListener('animationend', () => {
+                currentCards = [...nextRandomCards];
+                CARDS.classList.remove('to-left');
+                // анимация закончилась и мы перезаписываем карточки посередине:
+                i = 0;
+                for (let id of currentCards) {
+                    document.querySelector('#cards-active').children[i].firstElementChild.src = petsList[id]['img'];
+                    document.querySelector('#cards-active').children[i].firstElementChild.alt = petsList[id]['petName'] + ' photo';
+                    document.querySelector('#cards-active').children[i].firstElementChild.nextElementSibling.innerHTML = petsList[id]['petName'];
+                    i++;
+                }
+                nextBtn.addEventListener('click', nextCards);
+                prevBtn.addEventListener('click', prevCards);
+            })
             memory = [...currentCards];
-            lastBtn = 'next';
-            nextRandomCards = [...getNewRandomCards()];
-            showCards();
-            currentCards = [...nextRandomCards]; //запихнем это в функцию показа!!!
         } else {
-            let temp = [...currentCards];
-            nextRandomCards = [...memory];
+            nextBtn.removeEventListener('click', nextCards);
+            prevBtn.removeEventListener('click', prevCards);
             lastBtn = 'next';
-            showCards();
-            currentCards = [...nextRandomCards]; //запихнем это в функцию показа!!!
-            memory = [...temp];
+            nextRandomCards = [...memory];
+            // showCards();
+            //присваиваем картам слева новые значения:
+            let i = 0;
+            for (let id of nextRandomCards) {
+                document.querySelector('#cards-right').children[i].firstElementChild.src = petsList[id]['img'];
+                document.querySelector('#cards-right').children[i].firstElementChild.alt = petsList[id]['petName'] + ' photo';
+                document.querySelector('#cards-right').children[i].firstElementChild.nextElementSibling.innerHTML = petsList[id]['petName'];
+                i++;
+            }
+            //запускаем анимацию слайдера:
+            console.log('поехали влево');
+            CARDS.classList.add('to-left');
+            CARDS.addEventListener('animationend', () => {
+                currentCards = [...nextRandomCards];
+                CARDS.classList.remove('to-left');
+                // анимация закончилась и мы перезаписываем карточки посередине:
+                i = 0;
+                for (let id of currentCards) {
+                    document.querySelector('#cards-active').children[i].firstElementChild.src = petsList[id]['img'];
+                    document.querySelector('#cards-active').children[i].firstElementChild.alt = petsList[id]['img'] + ' photo';
+                    document.querySelector('#cards-active').children[i].firstElementChild.nextElementSibling.innerHTML = petsList[id]['petName'];
+                    i++;
+                }
+                nextBtn.addEventListener('click', nextCards);
+                prevBtn.addEventListener('click', prevCards);
+            })
+            memory = [...currentCards];
         }
     }
 
     function prevCards() {
         if (lastBtn === 'start' || lastBtn === 'prev') {
+            prevBtn.removeEventListener('click', prevCards);
+            nextBtn.removeEventListener('click', nextCards);
+            lastBtn = 'prev';
+            nextRandomCards = getNewRandomCards();
+            // showCards();
+            //присваиваем картам слева новые значения:
+            let i = 0;
+            for (let id of nextRandomCards) {
+                document.querySelector('#cards-left').children[i].firstElementChild.src = petsList[id]['img'];
+                document.querySelector('#cards-left').children[i].firstElementChild.alt = petsList[id]['img'] + ' photo';
+                document.querySelector('#cards-left').children[i].firstElementChild.nextElementSibling.innerHTML = petsList[id]['petName'];
+                i++;
+            }
+            //запускаем анимацию слайдера:
+            console.log('поехали вправо');
+            CARDS.classList.add('to-right');
+            CARDS.addEventListener('animationend', () => {
+                currentCards = [...nextRandomCards];
+                CARDS.classList.remove('to-right');
+                // анимация закончилась и мы перезаписываем карточки посередине:
+                i = 0;
+                for (let id of currentCards) {
+                    document.querySelector('#cards-active').children[i].firstElementChild.src = petsList[id]['img'];
+                    document.querySelector('#cards-active').children[i].firstElementChild.alt = petsList[id]['img'] + ' photo';
+                    document.querySelector('#cards-active').children[i].firstElementChild.nextElementSibling.innerHTML = petsList[id]['petName'];
+                    i++;
+                }
+                prevBtn.addEventListener('click', prevCards);
+                nextBtn.addEventListener('click', nextCards);
+            })
             memory = [...currentCards];
-            lastBtn = 'prev';
-            nextRandomCards = [...getNewRandomCards()];
-            showCards();
-            currentCards = [...nextRandomCards]; //запихнем это в функцию показа!!!
         } else {
-            let temp = [...currentCards];
-            nextRandomCards = [...memory];
+            prevBtn.removeEventListener('click', prevCards);
+            nextBtn.removeEventListener('click', nextCards);
             lastBtn = 'prev';
-            showCards();
-            currentCards = [...nextRandomCards]; //запихнем это в функцию показа!!!
-            memory = [...temp];
+            nextRandomCards = [...memory];
+            // showCards();
+            //присваиваем картам слева новые значения:
+            let i = 0;
+            for (let id of nextRandomCards) {
+                document.querySelector('#cards-left').children[i].firstElementChild.src = petsList[id]['img'];
+                document.querySelector('#cards-left').children[i].firstElementChild.alt = petsList[id]['img'] + ' photo';
+                document.querySelector('#cards-left').children[i].firstElementChild.nextElementSibling.innerHTML = petsList[id]['petName'];
+                i++;
+            }
+            //запускаем анимацию слайдера:
+            console.log('поехали вправо');
+            CARDS.classList.add('to-right');
+            CARDS.addEventListener('animationend', () => {
+                currentCards = [...nextRandomCards];
+                CARDS.classList.remove('to-right');
+                // анимация закончилась и мы перезаписываем карточки посередине:
+                i = 0;
+                for (let id of currentCards) {
+                    document.querySelector('#cards-active').children[i].firstElementChild.src = petsList[id]['img'];
+                    document.querySelector('#cards-active').children[i].firstElementChild.alt = petsList[id]['img'] + ' photo';
+                    document.querySelector('#cards-active').children[i].firstElementChild.nextElementSibling.innerHTML = petsList[id]['petName'];
+                    i++;
+                }
+                prevBtn.addEventListener('click', prevCards);
+                nextBtn.addEventListener('click', nextCards);
+            })
+            memory = [...currentCards];
         }
     }
     
