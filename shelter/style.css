@@ -792,20 +792,6 @@ li::marker {
         display: none;
     } */
 
-    .cards-wrapper {
-        max-width: 320px;
-    }
-    
-    @keyframes move-left {
-        from {left: 0%;}
-        to {left: -112%;}
-    }
-    
-    @keyframes move-right {
-        from {left: 0%;}
-        to {left: 112%;}
-    }
-
     .help {
         /* background-color: var(--color-light-xl); */
         min-height: 779px;
@@ -897,6 +883,20 @@ li::marker {
     .cross {
         right: -30px;
     }
+
+    .cards-wrapper {
+        max-width: 300px;
+    }
+    
+    @keyframes move-left {
+        from {left: 0%;}
+        to {left: -115%;}
+    }
+    
+    @keyframes move-right {
+        from {left: 0%;}
+        to {left: 115%;}
+    }
 }
 
 @media (min-width: 319px) and (max-width: 767px) {
@@ -951,11 +951,18 @@ li::marker {
         gap: auto;
     }
 
-    .cards {
-        width: 100%;
-        /* display: flex; */
-        /* justify-content: space-between; */
-        justify-content: center;
+    .cards-wrapper {
+        max-width: 300px;
+    }
+    
+    @keyframes move-left {
+        from {left: 0%;}
+        to {left: -120%;}
+    }
+    
+    @keyframes move-right {
+        from {left: 0%;}
+        to {left: 120%;}
     }
 
     .card:nth-child(n+2) {
