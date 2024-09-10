@@ -251,7 +251,8 @@
         }
     }
 
-    showPage(); //старт
+    //стартуем:
+    checkScreenSize();
     window.addEventListener('resize', checkScreenSize);
 
     nextBtn.addEventListener('click', showNextPage);
