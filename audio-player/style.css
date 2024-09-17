@@ -1,0 +1,166 @@
+:root {
+    --color-purple-s: #8978D0;
+    --color-purple-m: #56506f;
+    --color-dark-bg: #161618;
+    --footer-text: bold 2.2rem Arial, sans-serif;
+}
+
+body {
+    background: #261E38;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main {
+    margin: 10vh 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    /* color: inherit; */
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    display: block;
+    background-image: url("./img/Journey.jpg");
+    opacity: 0.6;
+    filter: blur(10px);
+    background-size:cover;
+    width: 100%;
+    height: 100%;
+}
+
+.player {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    width: 386px;
+    height: 477px;
+    box-shadow: 0 9px 51px 0 #090006;
+    background: var(--color-dark-bg);
+    overflow: hidden;
+}
+
+.cover-wrapper {
+    display: flex;
+    justify-content: center;
+    height: 272px;
+}
+
+.cover {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.player-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.player-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.music-name {
+    width: 224px;
+    overflow: hidden;
+}
+
+.music-name-wrapper {
+    display: flex;
+    width: 300%;
+    transform: translateX(-33.3333%);
+}
+
+.name {
+    width: 224px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    color: #f7edff;
+    margin: 0;
+}
+
+h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #bab3c0;
+    margin: 0;
+}
+
+.switch-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    background-color: var(--color-dark-bg);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 10dvh;
+    font: var(--footer-text);
+    /* color: var(--color-purple-m); */
+    /* gap: 20dvw; */
+}
+
+.github {
+    display: flex;
+    align-items: center;
+    gap: 1dvw;
+}
+
+.text {
+    color: var(--color-purple-m);
+
+}
+
+.logo {
+    height: 7dvh;
+}
