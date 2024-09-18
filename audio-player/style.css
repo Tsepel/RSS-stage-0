@@ -1,7 +1,9 @@
 :root {
+    --color-purple-xs: #c4a5ee;
     --color-purple-s: #8978D0;
     --color-purple-m: #56506f;
     --color-dark-bg: #161618;
+    --color-light-text: #f7edff;
     --footer-text: bold 2.2rem Arial, sans-serif;
 }
 
@@ -102,15 +104,32 @@ a {
 }
 
 button {
+    cursor: pointer;
     background: none;
     border: none;
+}
+
+button:hover svg circle {
+    stroke: var(--color-purple-xs);
+}
+
+button:hover svg path {
+    fill: var(--color-purple-xs);
+}
+
+button:hover svg rect {
+    fill: var(--color-purple-xs);
+}
+
+.hidden {
+    display: none;
 }
 
 h2 {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
     font-size: 30px;
-    color: #f7edff;
+    color: var(--color-light-text);
     margin: 0;
 }
 
