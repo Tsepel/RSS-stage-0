@@ -251,7 +251,7 @@ footer {
 
 .text {
     color: var(--color-purple-m);
-
+    font-size: 22px;
 }
 
 .logo {
