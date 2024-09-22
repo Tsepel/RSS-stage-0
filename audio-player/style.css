@@ -40,6 +40,7 @@ a {
     background-size:cover;
     width: 100%;
     height: 100%;
+    transition: all 0.2s ease-in-out;
 }
 
 .player {
@@ -65,6 +66,7 @@ a {
     display: flex;
     justify-content: center;
     height: 272px;
+    position: relative;
 }
 
 .cover {
@@ -73,10 +75,11 @@ a {
 }
 
 .player-content {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .player-top {
@@ -94,6 +97,7 @@ a {
     display: flex;
     width: 300%;
     transform: translateX(-33.3333%);
+    position: relative;
 }
 
 .name {
@@ -109,6 +113,10 @@ button {
     border: none;
 }
 
+circle, path, rect {
+    transition: all 0.2s ease-in-out;
+}
+
 button:hover svg circle {
     stroke: var(--color-purple-xs);
 }
@@ -119,6 +127,18 @@ button:hover svg path {
 
 button:hover svg rect {
     fill: var(--color-purple-xs);
+}
+
+button:active svg circle {
+    stroke: var(--color-light-text);
+}
+
+button:active svg path {
+    fill: var(--color-light-text);
+}
+
+button:active svg rect {
+    fill: var(--color-light-text);
 }
 
 .hidden {
@@ -141,9 +161,61 @@ h3 {
     margin: 0;
 }
 
+@keyframes move-left {
+    from {left: 0%}
+    to {left: -100%}
+}
+
+@keyframes move-right {
+    from {left: 0%}
+    to {left: 100%}
+}
+
+.to-left {
+    animation-name: move-left;
+    animation-duration: 0.4s;
+}
+
+.to-right {
+    animation-name: move-right;
+    animation-duration: 0.4s;
+}
+
 .switch-buttons {
     display: flex;
     flex-direction: column;
+}
+
+.player-prg {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 6px;
+}
+
+h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--color-light-text);
+    margin: 0;
+}
+
+.duration {
+    color: var(--color-purple-s);
+    align-self: flex-end;
+}
+
+.progress-bar {
+    background-color: var(--color-purple-m);
+    width: 354px;
+    height: 12px;
+}
+
+.progress {
+    background-color: var(--color-purple-s);
+    width: 220px;
+    height: 100%;
 }
 
 footer {
