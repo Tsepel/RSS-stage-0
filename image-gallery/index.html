@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Image Gallery</h1>
+        <div class="header-content">
+            <h1>Image Gallery</h1>
+            <form>
+                <input type="text">
+            </form>
+        </div>
     </header>
     <main>
-        
+        <section class="gallery">
+            <img class="image" src="./img/winter1.avif" alt="Image 1">
+            <img class="image" src="./img/winter2.avif" alt="Image 2">
+            <img class="image" src="./img/winter3.avif" alt="Image 3">
+        </section>
     </main>
     <footer>
         <div class="footer-content">
@@ -18,11 +28,10 @@
                 <a href="https://github.com/Tsepel" target="_blank">
                     <img src="./img/github-logo.png" alt="Github logo" class="logo">
                 </a>
-                <a href="https://github.com/Tsepel" class="year text">Tsepel</a>
             </div>
             <p class="year text">2024</p>
             <a href="https://rs.school/courses/javascript-preschool-ru" target="_blank">
-                <img src="./img/rss-logo.svg" alt="school-logo" class="logo">
+                <img src="./img/rss-logo.png" alt="school-logo" class="logo">
             </a>
         </div>
     </footer>

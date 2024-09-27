@@ -1,0 +1,100 @@
+:root {
+    --color-purple-s: #8978D0;
+    --color-purple-m: #56506f;
+    --color-dark-bg: #161618;
+    --color-light-text: #f7edff;
+    --footer-text: bold 2.2rem Arial, sans-serif;
+}
+
+body {
+    background: var(--color-dark-bg);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main {
+    margin: 4vh 4vw;
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    background-color: black;
+    width: 100%;
+    /* margin: 0 10vw; */
+    height: 10dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font: var(--footer-text);
+    color: var(--color-light-text);
+}
+
+.gallery {
+    width: 100%;
+    /* margin: 4vh; */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.image {
+    width: 30%;
+
+}
+
+footer {
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 10dvh;
+    font: var(--footer-text);
+    /* color: var(--color-purple-m); */
+    /* gap: 20dvw; */
+}
+
+.github {
+    display: flex;
+    align-items: center;
+    gap: 1dvw;
+}
+
+.text {
+    color: var(--color-purple-m);
+    font-size: 22px;
+}
+
+.logo {
+    height: 7dvh;
+}
