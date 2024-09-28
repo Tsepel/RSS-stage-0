@@ -5,17 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Gallery</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="./img/gallery-logo.png">
 </head>
 <body>
     <header>
         <div class="header-content">
-            <h1>Image Gallery</h1>
+            <div class="logo">
+                <img class="logo-img" src="./img/gallery-logo.png" alt="logo">
+                <div class="logo-text">
+                    <h1>Image Gallery</h1>
+                    <h2>Unsplash API</h2>
+                </div>
+            </div>
             <form onSubmit="return false;">
                 <input type="text" id="search" placeholder="Winter..." autocomplete="off">
                 <input type="button" class="search" id="search-btn">Go</input>
             </form>
         </div>
     </header>
+    <div class="decor"></div>
     <main>
         <section class="gallery">
             <img class="image" src="./img/winter1.avif" alt="Image 1">
@@ -23,6 +31,7 @@
             <img class="image" src="./img/winter3.avif" alt="Image 3">
         </section>
     </main>
+    <div class="decor"></div>
     <footer>
         <div class="footer-content">
             <div class="github">
