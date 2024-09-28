@@ -2,7 +2,7 @@
     let url = 'https://api.unsplash.com/search/photos?query=winter&per_page=18&orientation=landscape&client_id=UQu_pjTJlo_eDCQOjJ5Wao9POFiFc66pqG7jYYmXHl8';
     const input = document.querySelector('#search');
     const searchBtn = document.querySelector('#search-btn');
-    let searchFlag = false;
+    let isSearch = false;
 
     async function getImages() {
         const res = await fetch(url);
@@ -30,10 +30,34 @@
         url = 'https://api.unsplash.com/search/photos?query='
                 + value
                 + '&per_page=18&orientation=landscape&client_id=UQu_pjTJlo_eDCQOjJ5Wao9POFiFc66pqG7jYYmXHl8';
-        console.log(url);
+        searchBtn.classList.remove('search');
+        searchBtn.classList.add('clear');
+        searchBtn.removeEventListener('click', searchNewImages);
+        searchBtn.addEventListener('click', clearSearch);
         getImages();
     }
 
-    input.addEventListener('change', searchNewImages);
+    function clearSearch() {
+        input.value = '';
+        toggleBtn();
+        isSearch = false;
+    }
+
+    function toggleBtn() {
+            searchBtn.classList.remove('clear');
+            searchBtn.classList.add('search');
+            searchBtn.removeEventListener('click', clearSearch);
+            searchBtn.addEventListener('click', searchNewImages);
+    // isSearch = false;
+        // }
+    }
+
+    // input.addEventListener('change', searchNewImages);
+    input.addEventListener('keypress', event => {
+        if (event.key === 'Enter') {
+            searchNewImages();
+        }
+    });
+    input.addEventListener('input', toggleBtn);
     searchBtn.addEventListener('click', searchNewImages);
 })()

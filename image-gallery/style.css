@@ -52,9 +52,26 @@ h1 {
     color: var(--color-light-text);
 }
 
+#search {
+    height: 4dvh;
+    min-width: 20dvw;
+}
+
 #search-btn {
+    height: 5dvh;
+    width: 5dvh;
     background-color: var(--color-purple-s);
+    /* background-image: url('./img/search-icon.png'); */
+    background-size: cover;
+    border-radius: 10%;
+}
+
+.search {
     background-image: url('./img/search-icon.png');
+}
+
+.clear {
+    background-image: url('./img/clear-icon.png');
 }
 
 .gallery {
