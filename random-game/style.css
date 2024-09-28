@@ -1,4 +1,5 @@
 :root {
+    --color-purple-xs:#cb9cf1;
     --color-purple-s: #8978D0;
     --color-purple-m: #56506f;
     --color-dark-bg: #161618;
@@ -17,7 +18,95 @@ body {
 
 main {
     background-image: url("./img/shooting-gallery-bg.png");
+    background-size: cover;
+    background-position: 50%;
+    height: 90dvh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    border: none;
+}
+
+.game-title {
+    position: fixed;
+    top: 24%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: var(--color-light-text);
+    z-index: 1;
+    line-height: 1.3rem;
+    letter-spacing: 0.04rem;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #e5c6ff;
+}
+
+.main-menu {
+    position: fixed;
+    top: 54%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 200px;
+    background-color: var(--color-dark-bg);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.menu-button {
+    height: 50%;
+    font: var(--footer-text);
+    color: var(--color-light-text);
+    background-color: var(--color-purple-s);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.start-game {
+    box-shadow: inset 0 0 40px 0 rgba(255, 190, 249, 0.4);
+}
+
+.start-game:hover {
+    font-size: 1.7rem;
+    background-color: var(--color-purple-xs);
+    box-shadow: inset 0 0 26px 0 rgba(255, 255, 255, 0.6);
+}
+
+.scores {
+    height: 40%;
+    background-color: var(--color-purple-m);
+}
+
+.scores:hover {
+    font-size: 1.7rem;
+    background-color: #a889e2;
+    box-shadow: inset 0 0 26px 0 rgba(255, 190, 249, 0.6);
+}
+
+.blackout {
     height: 100%;
+    width: 100%;
+    background-color: rgba(22, 22, 24, .3);
+    /* opacity: 50%; */
+}
+
+.blurred-bg {
+    /* -webkit-backdrop-filter: blur(10px); */
+    backdrop-filter: blur(8px);
+    /* filter: blur(10px); */
 }
 
 footer {
