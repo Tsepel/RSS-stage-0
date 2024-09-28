@@ -137,7 +137,7 @@ h2 {
     /* background-size: cover; */
     align-self: center;
     object-fit: cover;
-    border-radius: 2%;
+    border-radius: 8px;
 }
 
 footer {
