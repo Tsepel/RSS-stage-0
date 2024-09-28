@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shooting Gallery</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="./img/balloon_blue">
+    <link rel="icon" type="image/png" href="./img/balloon_blue.png">
 </head>
 <body>
     <main>
         <div class="game-title">
             <h2>Welcome to</h2>
             <h1>Shooting Gallery</h1>
-            <h4>Shoot as many balloons as you can.<br>You have 2 minutes.</h4>
+            <h4>Pop as many balloons as you can.<br>You have 2 minutes.</h4>
         </div>
-        <form class="main-menu">
+        <div class="stats">
+            <h2 class="timer">2:00</h2>
+            <h2 class="counter">0</h2>
+        </div>
+        <form class="main-menu" onSubmit="return false;">
             <button class="menu-button start-game">Start game</button>
             <button class="menu-button scores">Scores</button>
         </form>
