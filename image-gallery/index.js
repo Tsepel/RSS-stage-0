@@ -6,7 +6,6 @@
     async function getImages() {
         const res = await fetch(url);
         const images = await res.json();
-        console.log(images);
         showImages(images);
     }
 
@@ -29,12 +28,15 @@
         url = 'https://api.unsplash.com/search/photos?query='
                 + value
                 + '&per_page=18&orientation=landscape&client_id=UQu_pjTJlo_eDCQOjJ5Wao9POFiFc66pqG7jYYmXHl8';
-        searchBtn.classList.remove('search');
-        searchBtn.classList.add('clear');
-        searchBtn.removeEventListener('click', searchNewImages);
-        searchBtn.addEventListener('click', clearSearch);
         getImages();
         input.focus();
+        if (input.value) {
+            searchBtn.classList.remove('search');
+            searchBtn.classList.add('clear');
+            searchBtn.removeEventListener('click', searchNewImages);
+            searchBtn.addEventListener('click', clearSearch);
+        }
+        
     }
 
     function clearSearch() {
@@ -59,3 +61,5 @@
     input.addEventListener('input', toggleBtn);
     searchBtn.addEventListener('click', searchNewImages);
 })()
+
+console.log('Самооценка: 70/70');
