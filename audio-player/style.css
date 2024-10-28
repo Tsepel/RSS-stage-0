@@ -1,0 +1,259 @@
+:root {
+    --color-purple-xs: #c4a5ee;
+    --color-purple-s: #8978D0;
+    --color-purple-m: #56506f;
+    --color-dark-bg: #161618;
+    --color-light-text: #f7edff;
+    --footer-text: bold 2.2rem Arial, sans-serif;
+}
+
+body {
+    background: #261E38;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main {
+    margin: 10vh 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    /* color: inherit; */
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    display: block;
+    background-image: url("./img/Journey.jpg");
+    opacity: 0.6;
+    filter: blur(10px);
+    background-size:cover;
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s ease-in-out;
+}
+
+.player {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    width: 386px;
+    height: 477px;
+    box-shadow: 0 9px 51px 0 #090006;
+    background: var(--color-dark-bg);
+    overflow: hidden;
+}
+
+.cover-wrapper {
+    display: flex;
+    justify-content: center;
+    height: 272px;
+    position: relative;
+    transition: all 0.8s ease;
+}
+
+.cover {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.player-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.player-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.music-name {
+    width: 224px;
+    overflow: hidden;
+}
+
+.music-name-wrapper {
+    display: flex;
+    width: 300%;
+    transform: translateX(-33.3333%);
+    position: relative;
+}
+
+.name {
+    width: 224px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+circle, path, rect {
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover svg circle {
+    stroke: var(--color-purple-xs);
+}
+
+button:hover svg path {
+    fill: var(--color-purple-xs);
+}
+
+button:hover svg rect {
+    fill: var(--color-purple-xs);
+}
+
+button:active svg circle {
+    stroke: var(--color-light-text);
+}
+
+button:active svg path {
+    fill: var(--color-light-text);
+}
+
+button:active svg rect {
+    fill: var(--color-light-text);
+}
+
+.hidden {
+    display: none;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    color: var(--color-light-text);
+    margin: 0;
+}
+
+h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #bab3c0;
+    margin: 0;
+}
+
+@keyframes move-left {
+    from {left: 0%}
+    to {left: -100%}
+}
+
+@keyframes move-right {
+    from {left: 0%}
+    to {left: 100%}
+}
+
+.to-left {
+    animation-name: move-left;
+    animation-duration: 0.4s;
+}
+
+.to-right {
+    animation-name: move-right;
+    animation-duration: 0.4s;
+}
+
+.switch-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.player-prg {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 6px;
+}
+
+h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--color-light-text);
+    margin: 0;
+}
+
+.duration {
+    color: var(--color-purple-s);
+    align-self: flex-end;
+}
+
+.progress-bar {
+    background-color: var(--color-purple-m);
+    width: 354px;
+    height: 12px;
+}
+
+.progress {
+    background-color: var(--color-purple-s);
+    display: flex;
+    width: 0;
+    height: 100%;
+}
+
+footer {
+    background-color: var(--color-dark-bg);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 10dvh;
+    font: var(--footer-text);
+    /* color: var(--color-purple-m); */
+    /* gap: 20dvw; */
+}
+
+.github {
+    display: flex;
+    align-items: center;
+    gap: 1dvw;
+}
+
+.text {
+    color: var(--color-purple-m);
+    font-size: 22px;
+}
+
+.logo {
+    height: 7dvh;
+}

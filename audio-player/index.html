@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <main>
+        <div class="player">
+            <div class="cover-wrapper">
+                <img class="cover" src="./img/Marvin_Gaye.png" alt="Marvin Gaye cover">
+                <img class="cover" src="./img/Journey.jpg" alt="Journey cover">
+                <img class="cover" src="./img/Muse.png" alt="Muse cover">
+            </div>
+            <div class="player-content">
+                <div class="player-top">
+                    <button class="toggle-button button">
+                        <svg width="71" height="71" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="35.4443" cy="35.6356" r="33" stroke="#8978D0" stroke-width="4" />
+                            <path class="play-svg" d="M51 35L26.25 53.1865L26.25 16.8135L51 35Z" fill="#8978D0" />
+                            <rect class="pause-svg hidden" x="23" y="18" width="8" height="34" fill="#8978D0" />
+                            <rect class="pause-svg hidden" x="39" y="18" width="8" height="34" fill="#8978D0" />
+                        </svg>
+                    </button>
+                    <div class="music-name">
+                        <div class="music-name-wrapper">
+                            <div class="name text">
+                                <h2>Marvin Gaye</h2>
+                                <h3>Ain't no mountain high enough</h3>
+                            </div>
+                            <div class="name text">
+                                <h2>Journey</h2>
+                                <h3>Don't Stop Believing</h3>
+                            </div>
+                            <div class="name text">
+                                <h2>Muse</h2>
+                                <h3>Uprising</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="switch-buttons">
+                        <button class="next-button button">
+                            <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="15.5332" cy="15.6356" r="13.5" stroke="#8978D0" stroke-width="3" />
+                                <path d="M17.6885 15.7133L9.43848 21.3425L9.43848 10.0842L17.6885 15.7133Z" fill="#8978D0" />
+                                <path d="M24.5508 15.7133L16.3008 21.3425L16.3008 10.0842L24.5508 15.7133Z" fill="#8978D0" />
+                            </svg>
+                        </button>
+                        <button class="prev-button button">
+                            <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="15" cy="15" r="13.5" transform="matrix(-1 0 0 1 30.4141 0.0933533)" stroke="#8978D0" stroke-width="3" />
+                                <path d="M13.2588 15.1711L21.5088 20.8003L21.5088 9.54198L13.2588 15.1711Z" fill="#8978D0" />
+                                <path d="M6.39648 15.1711L14.6465 20.8003L14.6465 9.54198L6.39648 15.1711Z" fill="#8978D0" />
+                              </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="player-prg">
+                    <h4 class="duration">4:11</h4>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <h4 class="current-time">0:00</h4>
+                </div>
+            </div>
+        </div>
+        <div class="background-image"></div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="github">
+                <a href="https://github.com/Tsepel" target="_blank">
+                    <img src="./img/github-logo.png" alt="Github logo" class="logo">
+                </a>
+                <a href="https://github.com/Tsepel" class="year text">Tsepel</a>
+            </div>
+            <p class="year text">2024</p>
+            <a href="https://rs.school/courses/javascript-preschool-ru" target="_blank">
+                <img src="./img/rss-logo.png" alt="school-logo" class="logo">
+            </a>
+        </div>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>
